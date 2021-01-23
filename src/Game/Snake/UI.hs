@@ -75,7 +75,7 @@ app =
       appChooseCursor = neverShowCursor,
       appHandleEvent = handleEvent,
       appStartEvent = return,
-      appAttrMap = const theMap
+      appAttrMap = const attrs
     }
 
 main :: IO ()
@@ -172,8 +172,8 @@ attrSnake = "attrSnake"
 attrFood = "attrFood"
 attrEmpty = "attrEmpty"
 
-theMap :: AttrMap
-theMap =
+attrs :: AttrMap
+attrs =
   attrMap
     V.defAttr
     [ (attrSnake, V.blue `on` V.blue),
