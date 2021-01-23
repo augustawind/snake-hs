@@ -2,28 +2,15 @@
 
 module Game.Snake where
 
-import           Control.Applicative            ( (<|>) )
-import           Control.Monad                  ( guard )
-import           Data.Maybe                     ( fromMaybe )
-import           Data.Sequence                  ( (<|)
-                                                , Seq
-                                                , ViewL(..)
-                                                , ViewR(..)
-                                                )
-import qualified Data.Sequence                 as S
-import           Lens.Micro                     ( (%~)
-                                                , (&)
-                                                , (.~)
-                                                , (^.)
-                                                )
-import           Lens.Micro.TH                  ( makeLenses )
-import           Linear.V2                      ( V2(..)
-                                                , _x
-                                                , _y
-                                                )
-import           System.Random                  ( Random(..)
-                                                , newStdGen
-                                                )
+import           Control.Applicative ((<|>))
+import           Control.Monad       (guard)
+import           Data.Maybe          (fromMaybe)
+import           Data.Sequence       (Seq, ViewL (..), ViewR (..), (<|))
+import qualified Data.Sequence       as S
+import           Lens.Micro          ((%~), (&), (.~), (^.))
+import           Lens.Micro.TH       (makeLenses)
+import           Linear.V2           (V2 (..), _x, _y)
+import           System.Random       (Random (..), newStdGen)
 
 ------------------------------------------------------------------------
 -- Types
