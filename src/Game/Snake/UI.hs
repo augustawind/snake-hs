@@ -125,7 +125,7 @@ drawStats g =
   hLimit 11 $
     vBox
       [ drawScore (g ^. score),
-        padTop (Pad 2) $ drawGameOver (g ^. dead)
+        padTop (Pad 2) $ drawMessage g
       ]
 
 drawScore :: Int -> Widget Name
@@ -136,14 +136,16 @@ drawScore n =
     . padAll 1
     $ str (show n)
 
-drawGameOver :: Bool -> Widget Name
-drawGameOver dead =
-  if dead
-    then withAttr attrGameOver . C.hCenter $ str "GAME OVER"
-    else emptyWidget
+drawMessage :: Game -> Widget Name
+drawMessage g
+  | g ^. dead = msg "GAME OVER"
+  | g ^. paused = msg "Use ←↓↑→\n or hjkl\n to play."
+  | otherwise = emptyWidget
+  where
+    msg = withAttr attrMessage . C.hCenter . str
 
-attrGameOver :: AttrName
-attrGameOver = "attrGameOver"
+attrMessage :: AttrName
+attrMessage = "attrMessage"
 
 drawGrid :: Game -> Widget Name
 drawGrid g =
@@ -178,5 +180,5 @@ attrs =
     V.defAttr
     [ (attrSnake, V.blue `on` V.blue),
       (attrFood, V.red `on` V.red),
-      (attrGameOver, fg V.red `V.withStyle` V.bold)
+      (attrMessage, fg V.red `V.withStyle` V.bold)
     ]
