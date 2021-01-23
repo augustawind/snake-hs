@@ -84,12 +84,16 @@ main = do
   forkIO $
     forever $ do
       writeBChan chan Tick
-      threadDelay 100000 -- determines how fast the game moves
+      threadDelay delay
   g <- initGame
   vty <- mkVty
   void $ customMain vty mkVty (Just chan) app g
   where
     mkVty = V.mkVty V.defaultConfig
+
+-- | Determines how fast the game moves.
+delay :: Int
+delay = 125000
 
 ------------------------------------------------------------------------
 -- Handling events
