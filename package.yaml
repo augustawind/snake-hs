@@ -21,12 +21,13 @@ description: Please see the README on GitHub at <https://github.com/dustinrohde/
 
 dependencies:
   - base >= 4.7 && < 5
-  - brick
-  - containers
-  - linear
-  - microlens
-  - microlens-th
-  - random
+  - brick == 0.52.1
+  - containers == 0.6.2.1
+  - linear == 1.21.3
+  - microlens == 0.4.11.2
+  - microlens-th == 0.4.3.6
+  - random == 1.1
+  - vty == 5.28.2
 
 library:
   source-dirs: src

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 858b4dade667371cf9bcb5217f41e61f9438a04d46cb89f426a610bfaf2ba42b
+-- hash: 0a9187d5ffa897ba35f056336f4dd001a327883c37fc5c0b0409e607efc572d0
 
 name:           snake
 version:        0.1.0.0
@@ -35,12 +35,13 @@ library
       src
   build-depends:
       base >=4.7 && <5
-    , brick
-    , containers
-    , linear
-    , microlens
-    , microlens-th
-    , random
+    , brick ==0.52.1
+    , containers ==0.6.2.1
+    , linear ==1.21.3
+    , microlens ==0.4.11.2
+    , microlens-th ==0.4.3.6
+    , random ==1.1
+    , vty ==5.28.2
   default-language: Haskell2010
 
 executable snake-exe
@@ -52,30 +53,12 @@ executable snake-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
-    , brick
-    , containers
-    , linear
-    , microlens
-    , microlens-th
-    , random
+    , brick ==0.52.1
+    , containers ==0.6.2.1
+    , linear ==1.21.3
+    , microlens ==0.4.11.2
+    , microlens-th ==0.4.3.6
+    , random ==1.1
     , snake
-  default-language: Haskell2010
-
-test-suite snake-test
-  type: exitcode-stdio-1.0
-  main-is: Spec.hs
-  other-modules:
-      Paths_snake
-  hs-source-dirs:
-      test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base >=4.7 && <5
-    , brick
-    , containers
-    , linear
-    , microlens
-    , microlens-th
-    , random
-    , snake
+    , vty ==5.28.2
   default-language: Haskell2010
