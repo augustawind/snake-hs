@@ -69,7 +69,14 @@ data Direction
 makeLenses ''Game
 
 ------------------------------------------------------------------------
--- Core functions
+-- Constants
+
+width, height :: Int
+width = 20
+height = 20
+
+------------------------------------------------------------------------
+-- Functions
 
 -- | Step forward in time.
 step :: Game -> Game
