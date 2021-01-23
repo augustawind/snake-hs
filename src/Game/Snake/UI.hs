@@ -93,7 +93,7 @@ main = do
 
 -- | Determines how fast the game moves.
 delay :: Int
-delay = 125000
+delay = 112500
 
 ------------------------------------------------------------------------
 -- Handling events
