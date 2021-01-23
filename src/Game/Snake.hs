@@ -2,40 +2,65 @@
 
 module Game.Snake where
 
-import           Control.Applicative ((<|>))
-import           Control.Monad       (guard)
-import           Data.Maybe          (fromMaybe)
-import           Data.Sequence       (Seq, ViewL (..), ViewR (..), (<|))
-import qualified Data.Sequence       as S
-import           Lens.Micro          ((%~), (&), (.~), (^.))
-import           Lens.Micro.TH       (makeLenses)
-import           Linear.V2           (V2 (..), _x, _y)
-import           System.Random       (Random (..), newStdGen)
+import Control.Applicative ((<|>))
+import Control.Monad (guard)
+import Data.Maybe (fromMaybe)
+import Data.Sequence
+  ( Seq,
+    ViewL (..),
+    ViewR (..),
+    (<|),
+  )
+import qualified Data.Sequence as S
+import Lens.Micro
+  ( (%~),
+    (&),
+    (.~),
+    (^.),
+  )
+import Lens.Micro.TH (makeLenses)
+import Linear.V2
+  ( V2 (..),
+    _x,
+    _y,
+  )
+import System.Random
+  ( Random (..),
+    newStdGen,
+  )
 
 ------------------------------------------------------------------------
 -- Types
 
 data Game = Game
-  { _snake  :: Snake -- ^ snake as a sequence of points in R2
-  , _dir    :: Direction -- ^ direction
-  , _food   :: Coord -- ^ location of the food
-  , _foods  :: Stream Coord -- ^ infinite list of random food locations
-  , _dead   :: Bool -- ^ game over flag
-  , _paused :: Bool -- ^ paused flag
-  , _score  :: Int -- ^ score
-  , _frozen :: Bool -- ^ freeze to disallow duplicate turns
+  { -- | snake as a sequence of points in R2
+    _snake :: Snake,
+    -- | direction
+    _dir :: Direction,
+    -- | location of the food
+    _food :: Coord,
+    -- | infinite list of random food locations
+    _foods :: Stream Coord,
+    -- | game over flag
+    _dead :: Bool,
+    -- | paused flag
+    _paused :: Bool,
+    -- | score
+    _score :: Int,
+    -- | freeze to disallow duplicate turns
+    _frozen :: Bool
   }
-  deriving Show
+  deriving (Show)
 
 type Coord = V2 Int
 
 type Snake = Seq Coord
 
 data Stream a = a :| Stream a
-  deriving Show
+  deriving (Show)
 
-data Direction =
-    North
+data Direction
+  = North
   | South
   | East
   | West
