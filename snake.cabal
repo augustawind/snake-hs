@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e5a81cccd3c76d4de67a67cdc7184c51910e460d6b4a313ee802d235cbba26ad
+-- hash: c4e38ab2c051c11a500e75af7c746703941664c3da037c47e0caecdb4d4f8345
 
 name:           snake
 version:        0.1.0.0
@@ -19,7 +19,6 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
-    ChangeLog.md
 
 source-repository head
   type: git
@@ -37,8 +36,8 @@ library
       base >=4.7 && <5
     , brick ==0.52.1
     , containers ==0.6.2.1
-    , extra
-    , lens
+    , extra ==1.7.9
+    , lens ==4.18.1
     , linear ==1.21.3
     , random ==1.1
     , transformers
@@ -56,8 +55,8 @@ executable snake-exe
       base >=4.7 && <5
     , brick ==0.52.1
     , containers ==0.6.2.1
-    , extra
-    , lens
+    , extra ==1.7.9
+    , lens ==4.18.1
     , linear ==1.21.3
     , random ==1.1
     , snake

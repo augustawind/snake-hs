@@ -8,7 +8,6 @@ copyright: "2021 Dustin Rohde"
 
 extra-source-files:
   - README.md
-  - ChangeLog.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -23,8 +22,8 @@ dependencies:
   - base >= 4.7 && < 5
   - brick == 0.52.1
   - containers == 0.6.2.1
-  - extra
-  - lens
+  - extra == 1.7.9
+  - lens == 4.18.1
   - linear == 1.21.3
   - random == 1.1
   - transformers
