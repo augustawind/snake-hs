@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ad28140d200fd7b849df41eb83a18be4f272f6bd7392a1defe283ca25aa0af2c
+-- hash: 858b4dade667371cf9bcb5217f41e61f9438a04d46cb89f426a610bfaf2ba42b
 
 name:           snake
 version:        0.1.0.0
@@ -27,13 +27,20 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Game.Snake
+      Game.Snake.UI
   other-modules:
       Paths_snake
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , brick
+    , containers
+    , linear
+    , microlens
+    , microlens-th
+    , random
   default-language: Haskell2010
 
 executable snake-exe
@@ -45,6 +52,12 @@ executable snake-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , brick
+    , containers
+    , linear
+    , microlens
+    , microlens-th
+    , random
     , snake
   default-language: Haskell2010
 
@@ -58,5 +71,11 @@ test-suite snake-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , brick
+    , containers
+    , linear
+    , microlens
+    , microlens-th
+    , random
     , snake
   default-language: Haskell2010

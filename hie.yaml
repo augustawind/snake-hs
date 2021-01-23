@@ -8,6 +8,3 @@ cradle:
 
     - path: "./app/Paths_snake.hs"
       component: "snake:exe:snake-exe"
-
-    - path: "./test"
-      component: "snake:test:snake-test"
