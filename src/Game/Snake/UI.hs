@@ -37,13 +37,13 @@ import qualified Brick.Widgets.Border as B
 import qualified Brick.Widgets.Border.Style as BS
 import qualified Brick.Widgets.Center as C
 import Control.Concurrent (forkIO, threadDelay)
+import Control.Lens ((^.))
 import Control.Monad (forever, void)
 import Control.Monad.IO.Class (liftIO)
 import Data.Maybe (fromMaybe)
 import Data.Sequence (Seq)
 import Game.Snake
 import qualified Graphics.Vty as V
-import Lens.Micro ((^.))
 import Linear.V2 (V2 (..))
 
 ------------------------------------------------------------------------

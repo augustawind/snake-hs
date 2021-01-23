@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0a9187d5ffa897ba35f056336f4dd001a327883c37fc5c0b0409e607efc572d0
+-- hash: e5a81cccd3c76d4de67a67cdc7184c51910e460d6b4a313ee802d235cbba26ad
 
 name:           snake
 version:        0.1.0.0
@@ -37,10 +37,11 @@ library
       base >=4.7 && <5
     , brick ==0.52.1
     , containers ==0.6.2.1
+    , extra
+    , lens
     , linear ==1.21.3
-    , microlens ==0.4.11.2
-    , microlens-th ==0.4.3.6
     , random ==1.1
+    , transformers
     , vty ==5.28.2
   default-language: Haskell2010
 
@@ -55,10 +56,11 @@ executable snake-exe
       base >=4.7 && <5
     , brick ==0.52.1
     , containers ==0.6.2.1
+    , extra
+    , lens
     , linear ==1.21.3
-    , microlens ==0.4.11.2
-    , microlens-th ==0.4.3.6
     , random ==1.1
     , snake
+    , transformers
     , vty ==5.28.2
   default-language: Haskell2010

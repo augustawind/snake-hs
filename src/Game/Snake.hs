@@ -1,24 +1,32 @@
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE TemplateHaskell #-}
 
 module Game.Snake where
 
 import Control.Applicative ((<|>))
+import Control.Lens
+  ( makeLenses,
+    modifying,
+    use,
+    (%~),
+    (&),
+    (.=),
+    (.~),
+    (^.),
+  )
 import Control.Monad (guard)
+import Control.Monad.Extra (orM)
+import Control.Monad.Trans.Maybe (MaybeT (..))
+import Control.Monad.Trans.State (State, execState, get, modify)
 import Data.Maybe (fromMaybe)
 import Data.Sequence
-  ( Seq,
+  ( Seq (..),
     ViewL (..),
     ViewR (..),
     (<|),
   )
 import qualified Data.Sequence as S
-import Lens.Micro
-  ( (%~),
-    (&),
-    (.~),
-    (^.),
-  )
-import Lens.Micro.TH (makeLenses)
 import Linear.V2
   ( V2 (..),
     _x,

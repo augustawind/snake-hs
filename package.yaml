@@ -23,10 +23,11 @@ dependencies:
   - base >= 4.7 && < 5
   - brick == 0.52.1
   - containers == 0.6.2.1
+  - extra
+  - lens
   - linear == 1.21.3
-  - microlens == 0.4.11.2
-  - microlens-th == 0.4.3.6
   - random == 1.1
+  - transformers
   - vty == 5.28.2
 
 library:

@@ -1,4 +1,3 @@
-module Main where
+module Main (module Game.Snake.UI) where
 
-main :: IO ()
-main = putStrLn "nothing implemented"
+import Game.Snake.UI (main)
